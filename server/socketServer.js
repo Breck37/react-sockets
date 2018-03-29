@@ -15,7 +15,17 @@ const port = 3700;
 
 //Create an 'instance of socket.io by passing in the 'Server'
 //This creates the opportunity to continue our normal server communications but also add socket communications
-const io = socket(app.listen(port, () => console.log(`We be jamming to the tunes of ${port}`)));
+const io = socket(
+      app.listen(port, () => console.log(`We be jamming to the tunes of ${port}`)));
+
+//Create Connection
+io.on('connection', onConnect)
+
+function onConnect(socket){
+
+      socket.join('Chat Room');
+      console.log('New user has joined your chatroom')
+}
 
 app.get('/', (req, res) => {
       res.send('<h1>Hello World</h1>')
