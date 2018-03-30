@@ -22,11 +22,24 @@ const io = socket(
 io.on('connection', onConnect)
 
 function onConnect(socket){
-
       socket.join('Chat Room');
       console.log('New user has joined your chatroom')
+
+      //Include Sender 
+      
+
+      //Create Disconnect
+      socket.on('disconnect', () => {
+            console.log('A user has disconnected')
+      })
 }
 
+
+
+
+
+
+
 app.get('/', (req, res) => {
-      res.send('<h1>Hello World</h1>')
+      res.send('<h1>Hello Brent</h1>')
 })
