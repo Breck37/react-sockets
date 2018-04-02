@@ -6,7 +6,7 @@ This Repository is a demonstration on the usage of Socket.IO and integrating its
 ## To begin, lets first understand what WebSockets are.
 
 ### Full Answer: 
-WebSockets are an advanced technology that makes an open interactive communication session open between the user's browser anda  server. With this, you can send messages to a server and receive event-driven responses without having to poll the server for a reply (MDN)
+WebSockets are an advanced technology that makes an open interactive communication session open between the user's browser and a server. With this, you can send messages to a server and receive event-driven responses without having to poll the server for a reply (MDN)
 
 ### Interfaces:
 

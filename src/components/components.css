@@ -1,0 +1,38 @@
+.grand-dad{
+    margin-top: 50px;
+}
+.btn {
+    margin: 25px 5px;
+    padding: .75em;
+    background: transparent;
+    color: rgb(223, 123, 248);
+    font-weight: bold;
+  }
+  
+  .input-name {
+    margin: 5px 0 10px 0;
+    /* color: white; */
+  }
+  
+  #messages {
+    width: 75vw;
+    height: 50vh;
+    border: solid grey 5px;
+    margin: 0 auto;
+    text-align: left;
+    margin-bottom: 15px;
+    background: rgb(223, 123, 248);
+    color: white;
+  }
+
+  #white-intro {
+      font-size: 1.25em;
+      color: rgb(223, 123, 248);
+      animation: bounceFade 5s infinite ease-in-out;
+  }
+
+  @keyframes bounceFade {
+    0% { transform: translateY(-5px)  }
+    50% { transform: translateY(15px) }
+    100% { transform: translateY(-5px) }
+  }
