@@ -39,7 +39,9 @@ export default class Chat extends Component {
             axios.post('/chat', {username, messageBody, roomNumber}).then(response => {
                 this.setState({messages: [...this.state.messages, response.data]})
             }).catch(err => console.log(err))
-            this.getMessages();
+            setTimeout(() => {
+                this.getMessages();
+            }, 500)
         }
 
 
@@ -86,7 +88,7 @@ render(){
                     <span key={i}>
                     <strong style={{color: 'purple', marginLeft: '0', textAlign: 'left'}}>{message.author}:</strong>
                     {' '}{message.message}<br/>
-                    {/* <button onClick={() => this.deleteMessage()}>Delete Message</button> */}
+                    <button onClick={() => this.deleteMessage()}>Delete Message</button>
                     </span>
                 )
             }) : null}

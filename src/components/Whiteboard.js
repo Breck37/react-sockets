@@ -136,7 +136,7 @@ class White extends Component {
         console.log(this.canvas, window.innerWidth)
         return (
             <div>
-                <p id='white-intro'>Please scroll down to ciew the Whiteboard canvas in full-view for accuracy.</p>
+                <p id='white-intro'>Please scroll down to view the Whiteboard canvas in full-view for accuracy.</p>
                 <br/>
                 <br/>
                 <canvas style={{border: 'solid black 2px', backgroundColor: 'rgb(223, 123, 248)'}}ref='canvas' width={window.innerWidth} height={window.innerHeight} onMouseDown={(e) => this.onMouseDown(e)} onMouseUp={e => this.onMouseUp(e)} onMouseMove={(e) => this.throttle(this.onMouseMove(e), 10)}/>

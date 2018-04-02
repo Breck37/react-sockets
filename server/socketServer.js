@@ -12,7 +12,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-console.log(process.env.CONNECTION_STRING)
+// console.log(process.env.CONNECTION_STRING)
 
 massive(process.env.CONNECTION_STRING).then(db => app.set('db', db)).catch(err=> console.error(err));
 
