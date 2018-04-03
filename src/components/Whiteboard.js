@@ -3,9 +3,6 @@ import io from 'socket.io-client'
 
 const socket = io();
 
-console.log(this.props, this.refs)
-
-
 class White extends Component {
     constructor(props) {
         super(props)
@@ -106,7 +103,6 @@ class White extends Component {
     }
 
     onDrawingEvent(data){
-        // console.log('XXX')
         var w = this.canvas.width;
         var h = this.canvas.height;
         this.drawLine(data.x0 * w, data.y0 * h, data.x1 * w, data.y1 * h, data.color);
@@ -139,7 +135,7 @@ class White extends Component {
                 <p id='white-intro'>Please scroll down to view the Whiteboard canvas in full-view for accuracy.</p>
                 <br/>
                 <br/>
-                <canvas style={{border: 'solid black 2px', backgroundColor: 'rgb(223, 123, 248)'}}ref='canvas' width={window.innerWidth} height={window.innerHeight} onMouseDown={(e) => this.onMouseDown(e)} onMouseUp={e => this.onMouseUp(e)} onMouseMove={(e) => this.throttle(this.onMouseMove(e), 10)}/>
+                <canvas style={{border: 'solid black 2px', backgroundColor: 'rgb(223, 123, 248)'}} ref='canvas' width={window.innerWidth} height={window.innerHeight} onMouseDown={(e) => this.onMouseDown(e)} onMouseUp={e => this.onMouseUp(e)} onMouseMove={(e) => this.throttle(this.onMouseMove(e), 10)}/>
             </div>
         )
     }

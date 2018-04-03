@@ -16,7 +16,7 @@
   
   #messages {
     width: 75vw;
-    /* height: 50vh; */
+    min-height: 50vh;
     border: solid grey 5px;
     margin: 0 auto;
     text-align: left;

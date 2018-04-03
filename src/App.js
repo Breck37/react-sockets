@@ -3,7 +3,7 @@ import logo from './assets/socket-io.svg';
 import './App.css';
 import { Link } from 'react-router-dom';
 import router from './components/router';
-import axios from 'axios';
+// import axios from 'axios';
 
 class App extends Component {
   constructor(){
@@ -19,11 +19,11 @@ class App extends Component {
   }
 
 
-componentDidMount(){
-  axios.get('/init').then(response => {
-    console.log('Chat Room Created')
-  })
-}
+// componentDidMount(){
+//   axios.get('/init').then(response => {
+//     console.log('Chat Room Created')
+//   })
+// }
 
   render() {
     return (
