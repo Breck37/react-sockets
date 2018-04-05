@@ -25,36 +25,28 @@ export default class Chat extends Component {
        
         this.sendMessage = e => {
             e.preventDefault();
-            if(this.state.username === ''){
-                alert('Please Enter your name')
-            } else if (this.state.messageBody === ''){
-                alert('Please Enter a message')
-            } else {
-
+            this.state.username === '' ? 
+                alert('Please Enter your name') :
+            this.state.messageBody === '' ?
+                alert('Please Enter a message') :
                 this.socket.emit('SEND_MESSAGE',{
                     username: this.state.username,
                     messageBody: this.state.messageBody,
                     room: this.state.roomNumber
                 });
+                this.setState({messageBody: '', messages: []});
             }
-            this.setState({messageBody: '', messages: []});
+                    
+            
+            
+            this.socket.on('RECEIVE_MESSAGE', data => {
+                            console.log('Hey', data)
+                            addMessage(data);
+                    })
+        
 
-            // console.log('post state', this.state)
-            // const {username, messageBody, roomNumber} = this.state;
-           
-        }
 
 
-
-    this.socket.on('RECEIVE_MESSAGE', data => {
-            console.log('Hey', data)
-            addMessage(data);
-            // this.setState({messages: [...this.state.messages, data]})
-            // this.getMessages();
-        // this.setState(prevState => ({
-        //     messages
-        // }))
-    })
 
     // -- Sets state with new messages array returned from server
     const addMessage = data => {
@@ -137,7 +129,6 @@ export default class Chat extends Component {
 /////////////////////////////////////////////////////
 
 render(){
-    // console.log(this.state.messages)
     return (
         <div className='grand-dad'>
         <div id='messages'>
@@ -147,18 +138,19 @@ render(){
                     <span key={i}>
                     <strong style={{color: 'purple', marginLeft: '0', textAlign: 'left'}}>{message.username}:</strong>
                     {' '}{message.messageBody}<br/>
-                    {/* <button onClick={() => this.deleteMessage()}>Delete Message</button> */}
                     </span>
                 )
             }) : null}
             
         </div>
         {this.state.typers.length < 4? this.state.typers.map((typer, i) => {
+            if(typer === this.state.username){
+                return null
+            } else {
                 return (
-
                     <span key={i} style={{color: 'black', marginRight: '10px'}}>{typer + ' is typing...'}</span>
                 )
-            }) : this.state.typers.length >=4 ? <p>There are multiple users typing...</p> : null}
+            }}) : this.state.typers.length >=4 ? <p>There are multiple users typing...</p> : null}
             <br/>
             <br/>
         Name:<br/>

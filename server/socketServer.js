@@ -17,7 +17,7 @@ app.use(cors());
 // massive(process.env.CONNECTION_STRING).then(db => app.set('db', db)).catch(err=> console.error(err));
 
 
-let messages = [{username: 'B', messageBody: 'Hey!', roomNumber: 1}];
+let messages = [];
 //Initial Setup
 // app.get('/init', (req, res) => {
 //       const db = req.app.get('db');
@@ -29,7 +29,7 @@ let messages = [{username: 'B', messageBody: 'Hey!', roomNumber: 1}];
 
 
 //-------------------Chat------------------
-app.get('/chat', (req,res) => {
+// app.get('/chat', (req,res) => {
       // console.log('2', 'Getting Messages')
       // const {room} = req.query;
       // const db = req.app.get('db');
@@ -41,13 +41,13 @@ app.get('/chat', (req,res) => {
       //     res.status(500).send('Oops, something went wrong!');
       // })
       // console.log(req);
-      console.log(messages)
-      res.send(messages)
-  });
+//       console.log(messages)
+//       res.send(messages)
+//   });
 
-app.post('/chat', (req,res) => {
+// app.post('/chat', (req,res) => {
       // console.log('Post', req.body)
-      let {username, messageBody, roomNumber} = req.body;
+      // let {username, messageBody, roomNumber} = req.body;
       // const db = req.app.get('db');
       // db.add_chat_message([username, messageBody, roomNumber]).then(response => {
       //       // console.log(response)
@@ -56,17 +56,17 @@ app.post('/chat', (req,res) => {
       //     console.log('Error saving message:', err);
       //     res.status(500).send('Oops, something went wrong!');
       // })
-      messages.push({username, messageBody, roomNumber});
-      console.log('!', messages)
-      res.send(messages)
-  });
+      // messages.push({username, messageBody, roomNumber});
+      // console.log('!', messages)
+      // res.send(messages)
+//   });
 
-app.delete('/chat/delete', (req, res) => {
-      const db = req.app.get('db');
-      db.delete_room().then(() => {
-            res.status(200).send('Refresh to start new room')
-      })
-})
+// app.delete('/chat/delete', (req, res) => {
+//       const db = req.app.get('db');
+//       db.delete_room().then(() => {
+//             res.status(200).send('Refresh to start new room')
+//       })
+// })
 
 
 
