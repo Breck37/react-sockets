@@ -5,12 +5,19 @@ const express = require('express'),
       cors = require('cors'),
       massive = require('massive'),
       //Specific dependency for Socket.IO that integrates the dependency with our ExpressJS Server
-      socket = require('socket.io');
+      socket = require('socket.io'),
+      path = require('path');
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
+
+app.use(express.static(path.join(`${__dirname}/../build`)))
+
+app.get('*', (req, res)=>{
+      res.sendFile(path.join(__dirname, '../build/index.html'));
+    })
 
 ////////////////Database Connection
 // console.log(process.env.CONNECTION_STRING)

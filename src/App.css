@@ -9,12 +9,12 @@
 
 .App-header {
   background-color: rgb(223, 123, 248);
-  height: 150px;
+  height: 200px;
   padding: 20px;
   color: white;
   display: flex;
-  flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 
 .App-header > div{
